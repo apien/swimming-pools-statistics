@@ -9,6 +9,7 @@ lazy val root = (project in file("."))
     name := "swimming-pools-statistics",
     version := "0.0.1-SNAPSHOT",
     scalaVersion := "2.12.8",
+	  mainClass in Compile := Some("apien.swp.Main"),
     scalacOptions ++= Seq("-Ypartial-unification"),
     libraryDependencies ++= Seq(
       "org.http4s" %% "http4s-blaze-server" % Http4sVersion,
@@ -23,7 +24,7 @@ lazy val root = (project in file("."))
 	buildInfoPackage := "apien.swp",
 	addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.6"),
 	addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.2.4")
-  ).enablePlugins(BuildInfoPlugin)
+  ).enablePlugins(BuildInfoPlugin, JavaAppPackaging)
 
 scalacOptions ++= Seq(
   "-deprecation",
